@@ -1,0 +1,75 @@
+import React from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import list from "./data/data.json";
+import Card from "./Card";
+const Achiev = () => {
+  const data=list.filter((e)=>e.Batch==="2018");
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  return (
+    <>
+      <div className="flex justify-center ">
+        <div className="w-11/12" >
+          {" "}
+          <h1 className=" text-xl font-bold text-orange-600 text-center mt-5 md:text-3xl lg:text-5xl">
+            Achievements
+          </h1>
+          <div className="flex justify-around">
+            <Slider className="m-3 w-11/12  " {...settings}>
+              {list.map((item) => (
+                <Card
+                  img={item.img}
+                  pos={item.post}
+                  link={item.link}
+                  name={item.name}
+                  more={item.more}
+                />
+              ))}
+            </Slider>
+          </div>
+          <div className="flex flex-row justify-center p-8">
+          <a className="btn btn-primary" href="/alumni">
+            More Connections
+          </a>
+        </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Achiev;
