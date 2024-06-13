@@ -4,9 +4,11 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import list from "./data/data.json";
 import Card from "./Card";
+
 const Achiev = () => {
-  const data=list.filter((e)=>e.Batch==="2018");
-  var settings = {
+  const data = list.filter((e) => e.Batch === "2018");
+
+  const settings = {
     dots: true,
     infinite: false,
     speed: 500,
@@ -40,18 +42,19 @@ const Achiev = () => {
       },
     ],
   };
+
   return (
     <>
-      <div className="flex justify-center ">
-        <div className="w-11/12" >
-          {" "}
-          <h1 className=" text-xl font-bold text-orange-600 text-center mt-5 md:text-3xl lg:text-5xl">
+      <div className="flex justify-center">
+        <div className="w-11/12">
+          <h1 className="text-xl font-bold text-orange-600 text-center mt-5 md:text-3xl lg:text-5xl">
             Achievements
           </h1>
           <div className="flex justify-around">
-            <Slider className="m-3 w-11/12  " {...settings}>
-              {list.map((item) => (
+            <Slider className="m-3 w-11/12" {...settings}>
+              {data.map((item, index) => (
                 <Card
+                  key={index}
                   img={item.img}
                   pos={item.post}
                   link={item.link}
@@ -62,10 +65,10 @@ const Achiev = () => {
             </Slider>
           </div>
           <div className="flex flex-row justify-center p-8">
-          <a className="btn btn-primary" href="/alumni">
-            More Connections
-          </a>
-        </div>
+            <a className="btn btn-primary" href="/alumni">
+              More Connections
+            </a>
+          </div>
         </div>
       </div>
     </>

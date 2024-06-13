@@ -1,5 +1,6 @@
 import React from "react";
 import m1 from "./images/college3.jpeg";
+import Login from "./Login";
 const Hom = () => {
   return (
     <>
@@ -37,12 +38,20 @@ const Hom = () => {
             </h1>
 
             <div className="flex  flex-row justify-center space-x-2  py-2 items-center">
-              <a className="btn btn-primary font-bold text-xs border md-text base lg:text-lg" href="/alumni">
+              <a className="btn btn-primary  text-white  bg-blue-900 font-bold hover:scale-105 hover:bg-green-900 left-2" href="/alumni">
                 Connections
               </a>
-              <a className="btn btn-primary font-bold  text-xs   md-text-base lg:text-lg" href="">
+              <div>
+              <a
+                onClick={() =>
+                  document.getElementById("my_modal_3").showModal()
+                }
+                className="btn btn-primary  text-white  bg-blue-900 font-bold hover:scale-105 hover:bg-green-900 left-2 "
+              >
                 Login
               </a>
+              <Login />
+            </div>
             </div>
             </div>
           </div>

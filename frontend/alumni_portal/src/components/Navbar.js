@@ -87,7 +87,8 @@ function Navbar() {
               </li>
             </ul>
           </div>
-          <div>
+          <div className="flex">
+            <div>
               <a
                 onClick={() =>
                   document.getElementById("my_modal_3").showModal()
@@ -98,6 +99,14 @@ function Navbar() {
               </a>
               <Login />
             </div>
+            <div>
+              <a 
+              href="/signup"
+              className="btn btn-primary  text-white  bg-blue-900 font-bold hover:scale-105 hover:bg-green-900 left-2 ">
+                SignUp
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </>
